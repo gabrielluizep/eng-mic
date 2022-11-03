@@ -1,2 +1,1 @@
-# mic-avr
-Repository to store assembly code developed to microcontrolers lesson
+The assembly code developed was debugged using MPLAB v2.50 and a Arduino UNO with ATMega328P microcontroller
