@@ -19,8 +19,11 @@ graph TD
 ```mermaid
 graph TD
   setup([Setup])
-
-  --> carry[Set carry to 0]
+  --> portd[Set PORTD as output]
+  --> portb[Set PORTB as input]
+  --> pullupd[Enable pull-up resistors to PORTD]
+  --> pullupb[Enable pull-up resistors to PORTB]
+  --> off[Turn off all LEDs]
   --> return([Return])
 ```
 
@@ -29,10 +32,16 @@ graph TD
 ```mermaid
 graph TD
   rol([Rotate LEDs left])
-  --> save[Save current state]
-  --> shift[Shift LEDs]
+  --> save{{Save current state on SRAM}}
+  --> setDelay[Set delay register to 200ms]
+  --> carry[Set carry to 0]
+  --> loop(( ))
+  --> shift[Shift LEDs to the rigth]
   --> delay{{Delay}}
-  --> restore[Restore previous state]
+  --> validation{Auxiliar Register <= 8?}
+  --> |Yes| loop
+  validation
+  --> |No| restore{{Restore previous state from SRAM}}
   --> return([Return])
 ```
 
@@ -41,8 +50,31 @@ graph TD
 ```mermaid
 graph TD
   ror([Rotate LEDs right])
-  --> save[Save current state]
+  --> save{{Save current state on SRAM}}
+  --> setDelay[Set delay register to 1000ms]
+  --> carry[Set carry to 0]
+  --> loop(( ))
+  --> shift[Shift LEDs to the left]
+  --> delay{{Delay}}
+  --> validation{Auxiliar Register <= 8?}
+  --> |Yes| loop
+  validation
+  --> |No| restore{{Restore previous state from SRAM}}
+  --> return([Return])
+```
 
-  --> restore[Restore previous state]
+---
+
+```mermaid
+graph TD
+  save([Save current state on SRAM])
+  --> return([Return])
+```
+
+---
+
+```mermaid
+graph TD
+  restore([Restore state from SRAM])
   --> return([Return])
 ```
