@@ -1,5 +1,6 @@
 .EQU BUTTON = PD2
 .DEF AUX = R16
+.DEF COUNTER = R17
 
 .DSEG
 .ORG SRAM_START
@@ -11,49 +12,47 @@
 ; TODO: FIX IO PORTS SETUP
 ;------------------------------------------------------------
 SETUP:
-; Sets PORTB as output
 LDI AUX,0xFF
+
+; Sets PORTB as output
 OUT DDRB,AUX
+; Enable pull-up to PORTD
+OUT PORTD, AUX
   
 ; Sets PD2 as input
-LDI AUX, 0b11111011
-OUT DDRB, AUX
-  
-; Enable pull-up to PORTD
-LDI AUX, 0xFF
-OUT PORTB, AUX
+LDI AUX, 0x00
+OUT DDRD, AUX
 
 INTIALIZE_SRAM:
 LDI AUX, 0b00000001
 LDI XH, HIGH(A1)
 LDI XL, LOW(A1)
+LDI COUNTER, 0b01000000
 
 SRAM_LOOP:
   ST X+, AUX
   ROL AUX
-  CPI AUX, 0b00000001
-  RJMP INTIALIZE_SRAM
+  CPSE AUX, COUNTER
+  RJMP SRAM_LOOP
 
+LDI XH, HIGH(A1)
+LDI XL, LOW(A1)
 
-;------------------------------------------------------------
 ; MAIN LOOP
-;------------------------------------------------------------
 START:
-  ; Turn off all LEDs
-  LDI AUX, 0xFF
-  OUT PORTB, AUX
 
-
-  BUTTON_PRESSED:
-
-  
-
-; If BUTTON is pressed turn on LEDs
 BUTTON_PRESSED:
+  ; Se pressionado liga o proximo LED
   SBIC PIND, BUTTON
   RJMP START
-  LDI AUX, 0x00
+  ; Pega valor em X
+  ; PROBLEMA acessa posição maior que o vetor
+  LD AUX, X+
+  ; Ligar LED
   OUT PORTB, AUX
-
+  STILL_PRESSED:
+    ; Se ainda estiver pressionado, espera
+    SBIS PIND, BUTTON
+    RJMP STILL_PRESSED
   
-  RJMP START
+RJMP START
