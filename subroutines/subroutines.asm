@@ -24,36 +24,28 @@ SELECTION_VALIDATION:
 ROTATE_RIGHT:
   RCALL SAVE
   
-  LDI DELAY_REG, 16
-  ; Clear carry flag
-  CLC
-  RIGHT_LOOP:
   ; Rotate LEDs to the left and delays
-  LD AUX_REG, PORTD
+  IN AUX_REG, PORTD
   ROR AUX_REG
-  ST AUX_REG, PORTD
-  RCALL DELAY
-  ; If carry flag is set, jump to the beginning of the loop
-  BRBS 0, RIGHT_LOOP
+  OUT PORTD, AUX_REG
   
+  LDI DELAY_REG, 16
+  RCALL DELAY
+    
   RCALL RESTORE
   RET
 
 ; Rotate LEDs to the left
 ROTATE_LEFT:
   RCALL SAVE
+ 
+  ; Rotate LEDs to the left and delays
+  IN AUX_REG, PORTD
+  ROL AUX_REG
+  OUT PORTD, AUX_REG
   
   LDI DELAY_REG, 80
-  ; Clear carry flag
-  CLC
-  LEFT_LOOP:
-  ; Rotate LEDs to the left and delays
-  LD AUX_REG, PORTD
-  ROL AUX_REG
-  ST AUX_REG, PORTD
   RCALL DELAY
-  ; If carry flag is set, jump to the beginning of the loop
-  BRBS 0, LEFT_LOOP
   
   RCALL RESTORE
   RET
@@ -90,8 +82,8 @@ SETUP:
 
 ; Delay subroutine
 ; DELAY_REG is used to configure the delay
-; DELAU_REG = 16 => 200ms
-; DELAU_REG = 80 => 1000ms
+; DELAY_REG = 16 => 200ms
+; DELAY_REG = 80 => 1000ms
 DELAY:
   PUSH R17
   PUSH R18

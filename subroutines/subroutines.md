@@ -32,34 +32,9 @@ graph TD
 ```mermaid
 graph TD
   rol([Rotate LEDs left])
-  --> save{{Save current state on SRAM}}
-  --> setDelay[Set delay register to 200ms]
-  --> carry[Set carry to 0]
-  --> loop(( ))
-  --> shift[Shift LEDs to the rigth]
-  --> delay{{Delay}}
-  --> validation{Auxiliar Register <= 8?}
-  --> |Yes| loop
-  validation
-  --> |No| restore{{Restore previous state from SRAM}}
-  --> return([Return])
-```
-
----
-
-```mermaid
-graph TD
-  ror([Rotate LEDs right])
-  --> save{{Save current state on SRAM}}
-  --> setDelay[Set delay register to 1000ms]
-  --> carry[Set carry to 0]
-  --> loop(( ))
   --> shift[Shift LEDs to the left]
+  --> setDelay[Set delay register to 200ms]
   --> delay{{Delay}}
-  --> validation{Auxiliar Register <= 8?}
-  --> |Yes| loop
-  validation
-  --> |No| restore{{Restore previous state from SRAM}}
   --> return([Return])
 ```
 
@@ -67,14 +42,9 @@ graph TD
 
 ```mermaid
 graph TD
-  save([Save current state on SRAM])
-  --> return([Return])
-```
-
----
-
-```mermaid
-graph TD
-  restore([Restore state from SRAM])
+  rol([Rotate LEDs right])
+  --> shift[Shift LEDs to the rigth]
+  --> setDelay[Set delay register to 200ms]
+  --> delay{{Delay}}
   --> return([Return])
 ```
