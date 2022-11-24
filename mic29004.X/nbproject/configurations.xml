@@ -30,7 +30,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>AVRASM</languageToolchain>
-        <languageToolchainVersion>2.2.7</languageToolchainVersion>
+        <languageToolchainVersion>5.4.0</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -1023,7 +1023,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>AVRASM</languageToolchain>
-        <languageToolchainVersion>2.2.7</languageToolchainVersion>
+        <languageToolchainVersion>5.4.0</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>

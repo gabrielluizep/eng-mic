@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  aula1.ASM Tue Feb  1 15:59:18 2022
+AVRASM ver. 2.2.7  aula1.ASM Thu Nov 24 11:19:47 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -695,7 +695,14 @@ EQU  ACIaddr      0000002e
 EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
-CSEG label        00000000
-EQU  var1         00000064
-EQU  var2         000000c8
-CSEG start        00000000
+EQU  BOTAO        00000002
+EQU  BOTAO2       00000003
+EQU  L0           00000000
+EQU  L1           00000001
+DEF  AUX          r16
+CSEG setup        00000034
+CSEG isr_int0     00000048
+CSEG isr_int1     00000050
+CSEG main         00000041
+CSEG delay        00000058
+CSEG DELAY_LOOP   0000005e

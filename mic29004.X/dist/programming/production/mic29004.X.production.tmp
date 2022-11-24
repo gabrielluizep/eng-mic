@@ -1,7 +1,7 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
  <DEVICE>"ATmega328P"</DEVICE>
- <WORKING_DIR>/home/aluno/Downloads/mic29004.X</WORKING_DIR>
+ <WORKING_DIR>/home/aluno/mic-avr/mic29004.X</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>/opt/microchip/mplabx/v5.50/packs/Microchip/ATmega_DFP/2.3.126/avrasm/inc</DIR>
   <DIR></DIR>
@@ -20,7 +20,11 @@
   <FILE>dist/programming/production/mic29004.X.production.map</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <label><FILE>aula1.ASM</FILE><LINE>2</LINE></label>
-  <start><FILE>aula1.ASM</FILE><LINE>5</LINE></start>
+  <setup><FILE>aula1.ASM</FILE><LINE>18</LINE></setup>
+  <isr_int0><FILE>aula1.ASM</FILE><LINE>46</LINE></isr_int0>
+  <isr_int1><FILE>aula1.ASM</FILE><LINE>61</LINE></isr_int1>
+  <main><FILE>aula1.ASM</FILE><LINE>34</LINE></main>
+  <delay><FILE>aula1.ASM</FILE><LINE>74</LINE></delay>
+  <DELAY_LOOP><FILE>aula1.ASM</FILE><LINE>83</LINE></DELAY_LOOP>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -91,7 +91,7 @@ FIXDEPS=fixDeps
 _/_=/
 ShExtension=.sh
 Device=ATmega328P
-ProjectDir=/home/aluno/Downloads/mic29004.X
+ProjectDir=/home/aluno/mic-avr/mic29004.X
 ProjectName=mic29004
 ConfName=programming
 ImagePath=dist/programming/${IMAGE_TYPE}/mic29004.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
@@ -151,3 +151,11 @@ endif
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r build/programming
 	${RM} -r dist/programming
+
+# Enable dependency checking
+.dep.inc: .depcheck-impl
+
+DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+ifneq (${DEPFILES},)
+include ${DEPFILES}
+endif
