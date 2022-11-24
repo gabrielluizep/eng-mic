@@ -1,0 +1,26 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>/home/aluno/Downloads/mic29004.X</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>/opt/microchip/mplabx/v5.50/packs/Microchip/ATmega_DFP/2.3.126/avrasm/inc</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>aula1.ASM</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>/opt/microchip/mplabx/v5.50/packs/Microchip/ATmega_DFP/2.3.126/avrasm/inc/m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>dist/programming/production/mic29004.X.production.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>dist/programming/production/mic29004.X.production.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>dist/programming/production/mic29004.X.production.map</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <label><FILE>aula1.ASM</FILE><LINE>2</LINE></label>
+  <start><FILE>aula1.ASM</FILE><LINE>5</LINE></start>
+ </LABELS>
+</ASSEMBLER_INFO>
