@@ -1,4 +1,4 @@
-;DEFINIÇÕES
+;DEFINIÃ‡Ã•ES
 .equ BOTAO = PD2
 .equ BOTAO2 = PD3
 .equ L0 = PB0
@@ -8,10 +8,10 @@
 .ORG 0x0000 ; Reset vector
   RJMP setup
 
-.ORG 0x0002 ; Vetor (endereddço na Flash) da INT0
+.ORG 0x0002 ; Vetor (endereddÃ§o na Flash) da INT0
   RJMP isr_int0 
 
-.ORG 0x0004 ; Vetor (endereddço na Flash) da INT1
+.ORG 0x0004 ; Vetor (endereddÃ§o na Flash) da INT1
   RJMP isr_int1 
 
 .ORG 0x0020 ; Temporizador
@@ -20,11 +20,11 @@
 .ORG 0x0034 ; primeira end. livre depois dos vetores
 setup:
   ldi R16, 0b00000101 ;TC0 com prescaler de 1024,a 16 MHz gera
-  out TCCR0B, R16; uma interrup¸c~aoa cada 16,384 ms13 LDI R16, 114
+  out TCCR0B, R16; uma interrupÂ¸c~aoa cada 16,384 ms13 LDI R16, 114
   sts TIMSK0, R16; habilita int. do TC0B(TIMSK0(0)=TOIE0 <- 1)
 
   ldi AUX,0x03 ; 0b00000011
-  out DDRB,AUX ; configura PB3/2 como saída
+  out DDRB,AUX ; configura PB3/2 como saÃ­da
   out PORTB,AUX ; desliga os LEDs
   cbi DDRD, BOTAO ; configura o PD2 como entrada
   cbi DDRD, BOTAO2 ; configura o PD3 como entrada
@@ -32,17 +32,17 @@ setup:
   sbi PORTD, BOTAO2 ; liga o pull-up do PD2
 
   LDI AUX, 0b00001010 ;
-  STS EICRA, AUX ; config. INT0 sensível a borda
+  STS EICRA, AUX ; config. INT0 sensÃ­vel a borda
   SBI EIMSK, INT0 ; habilita a INT0
   SBI EIMSK, INT1 ; habilita a INT0
 
-  SEI ; habilita a interrupddção global ...
+  SEI ; habilita a interrupddÃ§Ã£o global ...
   ; ... (bit I do SREG)
 main:
   rjmp main
 
 ;-------------------------------------------------
-; Rotina de Interrupddção (ISR) da INT0
+; Rotina de InterrupddÃ§Ã£o (ISR) da INT0
 ;-------------------------------------------------
 isr_int0:
   push R16 ; Salva o contexto (SREG)
@@ -57,7 +57,7 @@ isr_int0:
   reti
 
 ;-------------------------------------------------
-; Rotina de Interrupddção (ISR) da INT1
+; Rotina de InterrupddÃ§Ã£o (ISR) da INT1
 ;-------------------------------------------------
 isr_int1:
   push R16 ; Salva o contexto (SREG)
@@ -72,9 +72,9 @@ isr_int1:
   reti
 
 isr_tc0b:
-  PUSH R16
-  IN R16, SREG
-  PUSH R16
+  ; PUSH R16
+  ; IN R16, SREG
+  ; PUSH R16
 
   INC R16
   CPI R16, 62
@@ -83,7 +83,7 @@ isr_tc0b:
   LDI R16, 0
 
   END:
-    POP R16
-    OUT SREG, R16
-    POP R16 
+    ; POP R16
+    ; OUT SREG, R16
+    ; POP R16 
     RETI

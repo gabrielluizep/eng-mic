@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  aula1.ASM Thu Nov 24 11:19:47 2022
+AVRASM ver. 2.2.7  aula1.ASM Tue Nov 29 11:22:09 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -701,8 +701,8 @@ EQU  L0           00000000
 EQU  L1           00000001
 DEF  AUX          r16
 CSEG setup        00000034
-CSEG isr_int0     00000048
-CSEG isr_int1     00000050
-CSEG main         00000041
-CSEG delay        00000058
-CSEG DELAY_LOOP   0000005e
+CSEG isr_int0     00000046
+CSEG isr_int1     0000004e
+CSEG isr_tc0b     00000056
+CSEG main         00000045
+CSEG END          0000005e

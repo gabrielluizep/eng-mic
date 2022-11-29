@@ -20,11 +20,11 @@
   <FILE>dist/programming/production/mic29004.X.production.map</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <setup><FILE>aula1.ASM</FILE><LINE>18</LINE></setup>
-  <isr_int0><FILE>aula1.ASM</FILE><LINE>46</LINE></isr_int0>
-  <isr_int1><FILE>aula1.ASM</FILE><LINE>61</LINE></isr_int1>
-  <main><FILE>aula1.ASM</FILE><LINE>34</LINE></main>
-  <delay><FILE>aula1.ASM</FILE><LINE>74</LINE></delay>
-  <DELAY_LOOP><FILE>aula1.ASM</FILE><LINE>83</LINE></DELAY_LOOP>
+  <setup><FILE>aula1.ASM</FILE><LINE>21</LINE></setup>
+  <isr_int0><FILE>aula1.ASM</FILE><LINE>47</LINE></isr_int0>
+  <isr_int1><FILE>aula1.ASM</FILE><LINE>62</LINE></isr_int1>
+  <isr_tc0b><FILE>aula1.ASM</FILE><LINE>74</LINE></isr_tc0b>
+  <main><FILE>aula1.ASM</FILE><LINE>41</LINE></main>
+  <END><FILE>aula1.ASM</FILE><LINE>85</LINE></END>
  </LABELS>
 </ASSEMBLER_INFO>
