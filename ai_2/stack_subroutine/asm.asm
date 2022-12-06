@@ -35,7 +35,7 @@ start:
   ; Configura o delay para 200ms
   LDI R19, 16
 
-  ; Escreve o valor no display após 200ms
+  ; Escreve o valor no display apÃ³s 200ms
   RCALL delay
   RCALL ssd_write_x
   
@@ -64,13 +64,13 @@ ssd_init:
     IN R16, SREG
     PUSH R16
     
-    ; Configura A a F como saída e desliga
+    ; Configura A a F como saÃ­da e desliga
     LDI R16, 0b00111111 
     OUT DDRB, R16 
     LDI R16, 0xFF
     OUT PORTB, R16
 
-    ; Configura G e DP como saída e desliga
+    ; Configura G e DP como saÃ­da e desliga
     LDI R16, 0b00110000
     OUT DDRC, R16 
     LDI R16, 0xFF
@@ -132,8 +132,8 @@ ssd_dp_off:
     ret
 
 ;---------------------------------------------------------------------------
-; SUB-ROTINA: Decodifica um valor de 0 a 15 passado como parâmetro no R16 e 
-;             escreve em um display anodo comum com a seguinte ligação:
+; SUB-ROTINA: Decodifica um valor de 0 a 15 passado como parÃ¢metro no R16 e 
+;             escreve em um display anodo comum com a seguinte ligaÃ§Ã£o:
 ; Seguimento:  DP  G   F   ... A
 ; Pino:        PC5 PC4 PB5 ... PB0
 ;---------------------------------------------------------------------------
@@ -151,7 +151,7 @@ ssd_decode:
   inc  ZH    
 
 le_tab:     
-  lpm  R0,Z      ; Lê tabela de decoficação
+  lpm  R0,Z      ; LÃª tabela de decoficaÃ§Ã£o
 
   sbi PORTC, PC4 ; Escreve G
   sbrs R0, 6
@@ -168,8 +168,8 @@ le_tab:
   ret
 
 ;---------------------------------------------------------------------------
-;   Tabela p/ decodificar o display: como cada endereço da memória flash é 
-; de 16 bits, acessa-se a parte baixa e alta na decodificação
+;   Tabela p/ decodificar o display: como cada endereÃ§o da memÃ³ria flash Ã© 
+; de 16 bits, acessa-se a parte baixa e alta na decodificaÃ§Ã£o
 ;---------------------------------------------------------------------------
    Tabela: .dw 0x7940, 0x3024, 0x1219, 0x7802, 0x1800, 0x0308, 0x2146, 0x0E06
 ;             1 0     3 2     5 4     7 6     9 8     B A     D C     F E  
@@ -178,8 +178,8 @@ le_tab:
 
 
 ;---------------------------------------------------------------
-;SUB-ROTINA DE ATRASO Programável
-; Descrição: Depende do valor de R19 carregado antes da chamada.
+;SUB-ROTINA DE ATRASO ProgramÃ¡vel
+; DescriÃ§Ã£o: Depende do valor de R19 carregado antes da chamada.
 ; Exemplos:  - R19 = 16 --> 200ms 
 ;            - R19 = 80 --> 1s 
 ;---------------------------------------------------------------
@@ -193,9 +193,9 @@ delay:
   clr r17
   clr r18
 loop:            
-  dec  R17       ;decrementa R17, começa com 0x00
+  dec  R17       ;decrementa R17, comeÃ§a com 0x00
   brne loop      ;enquanto R17 > 0 fica decrementando R17
-  dec  R18       ;decrementa R18, começa com 0x00
+  dec  R18       ;decrementa R18, comeÃ§a com 0x00
   brne loop      ;enquanto R18 > 0 volta decrementar R18
   dec  R19       ;decrementa R19
   brne loop      ;enquanto R19 > 0 vai para volta
