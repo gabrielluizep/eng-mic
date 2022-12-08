@@ -10,20 +10,20 @@
 .ORG 0x0034 ; End
       
 setup:
-    ; Configura interrupção timer
+    ; Configura interrupÃ§Ã£o timer
     ldi R16, 0b00000101 ; TC0 com prescaler de 1024,a 16 MHz gera
-    out TCCR0B, R16     ; uma interrupção cada 16,384 ms13 LDI R16, 114
+    out TCCR0B, R16     ; uma interrupÃ§Ã£o cada 16,384 ms13 LDI R16, 114
     sts TIMSK0, R16     ; habilita int. do TC0B(TIMSK0(0)=TOIE0 <- 1)
 
-    ; Configura interrupção botão
+    ; Configura interrupÃ§Ã£o botÃ£o
     LDI R20, 0b00001010 
-    STS EICRA, R20      ; config. INT0 sensível a borda
+    STS EICRA, R20      ; config. INT0 sensÃ­vel a borda
     SBI EIMSK, INT0     ; habilita a INT0
 
-    ; Habilita interrupção global
+    ; Habilita interrupÃ§Ã£o global
     SEI
     
-    ; Configura PD4 como saída
+    ; Configura PD4 como saÃ­da
     SBI DDRD, PD4
 
     ; Configura a PD2 como entrada com o pull-up ativo
@@ -31,13 +31,13 @@ setup:
     sbi PORTD, PD2
 
     ; Inicializa o SSD
-    sbi DDRC, PC4	      ; Configura PC5 (segmento G) como saída ...
+    sbi DDRC, PC4	      ; Configura PC5 (segmento G) como saÃ­da ...
     sbi PORTC, PC4	    ; ... e apaga 
-    sbi DDRC, PC5	      ; Configura PC6 (DP) como saída ...
+    sbi DDRC, PC5	      ; Configura PC6 (DP) como saÃ­da ...
     sbi PORTc, PC5	    ; ... e apaga 
     
     ldi R17,0xFF	  
-    out DDRB, R17	      ; configura PBx como saída ...
+    out DDRB, R17	      ; configura PBx como saÃ­da ...
     out PORTB, R17	    ; ... e apaga os segmentos do display
     
     clr r16
@@ -67,8 +67,8 @@ isr_tc0b:
     RETI
 
 ;---------------------------------------------------------------------------
-; SUB-ROTINA: Decodifica um valor de 0 a 15 passado como parâmetro no R16 e 
-;             escreve em um display anodo comum com a seguinte ligação:
+; SUB-ROTINA: Decodifica um valor de 0 a 15 passado como parÃ¢metro no R16 e 
+;             escreve em um display anodo comum com a seguinte ligaÃ§Ã£o:
 ; Seguimento:  G   F  ...  A
 ; Pino:       PB2 PC5 ... PC0
 ;---------------------------------------------------------------------------
@@ -86,7 +86,7 @@ ssd_decode:
   inc  ZH    
 
 le_tab:     
-  lpm  R0,Z      ; Lê tabela de decoficação
+  lpm  R0,Z      ; LÃª tabela de decoficaÃ§Ã£o
 
   sbi PORTC, PC4 ; Escreve G
   sbrs R0, 6
@@ -103,8 +103,8 @@ le_tab:
   ret
 
 ;---------------------------------------------------------------------------
-;   Tabela p/ decodificar o display: como cada endereço da memória flash é 
-; de 16 bits, acessa-se a parte baixa e alta na decodificação
+;   Tabela p/ decodificar o display: como cada endereÃ§o da memÃ³ria flash Ã© 
+; de 16 bits, acessa-se a parte baixa e alta na decodificaÃ§Ã£o
 ;---------------------------------------------------------------------------
 Tabela: .dw 0x7940, 0x3024, 0x1219, 0x7802, 0x1800, 0x0308, 0x2146, 0x0E06
 ;             1 0     3 2     5 4     7 6     9 8     B A     D C     F E  

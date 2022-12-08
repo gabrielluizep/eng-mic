@@ -20,20 +20,13 @@
   <FILE>dist/programming/production/mic29004.X.production.map</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <values><FILE>aula1.ASM</FILE><LINE>13</LINE></values>
-  <start><FILE>aula1.ASM</FILE><LINE>16</LINE></start>
-  <ssd_init><FILE>aula1.ASM</FILE><LINE>61</LINE></ssd_init>
-  <initialization><FILE>aula1.ASM</FILE><LINE>23</LINE></initialization>
-  <MAIN_LOOP><FILE>aula1.ASM</FILE><LINE>30</LINE></MAIN_LOOP>
-  <FIRST_PART><FILE>aula1.ASM</FILE><LINE>34</LINE></FIRST_PART>
-  <delay><FILE>aula1.ASM</FILE><LINE>186</LINE></delay>
-  <ssd_write_x><FILE>aula1.ASM</FILE><LINE>86</LINE></ssd_write_x>
-  <SECOND_PART><FILE>aula1.ASM</FILE><LINE>47</LINE></SECOND_PART>
-  <ssd_dp_on><FILE>aula1.ASM</FILE><LINE>102</LINE></ssd_dp_on>
-  <ssd_dp_off><FILE>aula1.ASM</FILE><LINE>118</LINE></ssd_dp_off>
-  <ssd_decode><FILE>aula1.ASM</FILE><LINE>140</LINE></ssd_decode>
-  <Tabela><FILE>aula1.ASM</FILE><LINE>174</LINE></Tabela>
-  <le_tab><FILE>aula1.ASM</FILE><LINE>153</LINE></le_tab>
-  <loop><FILE>aula1.ASM</FILE><LINE>195</LINE></loop>
+  <setup><FILE>aula1.ASM</FILE><LINE>12</LINE></setup>
+  <isr_int0><FILE>aula1.ASM</FILE><LINE>50</LINE></isr_int0>
+  <isr_tc0b><FILE>aula1.ASM</FILE><LINE>55</LINE></isr_tc0b>
+  <main><FILE>aula1.ASM</FILE><LINE>46</LINE></main>
+  <ssd_decode><FILE>aula1.ASM</FILE><LINE>75</LINE></ssd_decode>
+  <END><FILE>aula1.ASM</FILE><LINE>66</LINE></END>
+  <Tabela><FILE>aula1.ASM</FILE><LINE>109</LINE></Tabela>
+  <le_tab><FILE>aula1.ASM</FILE><LINE>88</LINE></le_tab>
  </LABELS>
 </ASSEMBLER_INFO>

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  aula1.ASM Tue Dec  6 11:35:01 2022
+AVRASM ver. 2.2.7  aula1.ASM Thu Dec  8 10:43:19 2022
 
 
 EQU  SIGNATURE_000 0000001e
@@ -695,26 +695,11 @@ EQU  ACIaddr      0000002e
 EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
-EQU  A            00000000
-EQU  B            00000001
-EQU  C            00000002
-EQU  D            00000003
-EQU  E            00000004
-EQU  F            00000005
-EQU  G            00000004
-EQU  DP           00000005
-DSEG values       00000100
-CSEG start        00000000
-CSEG ssd_init     00000015
-CSEG initialization 00000004
-CSEG MAIN_LOOP    00000008
-CSEG FIRST_PART   0000000a
-CSEG delay        0000005a
-CSEG ssd_write_x  00000024
-CSEG SECOND_PART  00000010
-CSEG ssd_dp_on    0000002d
-CSEG ssd_dp_off   00000035
-CSEG ssd_decode   0000003d
-CSEG Tabela       00000052
-CSEG le_tab       00000047
-CSEG loop         00000060
+CSEG setup        00000034
+CSEG isr_int0     0000004a
+CSEG isr_tc0b     0000004d
+CSEG main         00000049
+CSEG ssd_decode   00000056
+CSEG END          00000055
+CSEG Tabela       0000006b
+CSEG le_tab       00000060
