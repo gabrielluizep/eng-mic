@@ -11,24 +11,25 @@
   <FILE>/opt/microchip/mplabx/v5.50/packs/Microchip/ATmega_DFP/2.3.126/avrasm/inc/m328Pdef.inc</FILE>
  </INCLUDED_FILES>
  <OBJECT_FILES>
-  <FILE>dist/programming/production/mic29004.X.production.obj</FILE>
+  <FILE>dist/default/production/mic29004.X.production.obj</FILE>
  </OBJECT_FILES>
  <HEX_FILES>
-  <FILE>dist/programming/production/mic29004.X.production.hex</FILE>
+  <FILE>dist/default/production/mic29004.X.production.hex</FILE>
  </HEX_FILES>
  <OUTPUT_FILES>
-  <FILE>dist/programming/production/mic29004.X.production.map</FILE>
+  <FILE>dist/default/production/mic29004.X.production.map</FILE>
+  <FILE>dist/default/production/mic29004.X.production.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
   <setup><FILE>aula1.ASM</FILE><LINE>19</LINE></setup>
-  <isr_int0><FILE>aula1.ASM</FILE><LINE>71</LINE></isr_int0>
-  <isr_tc0b><FILE>aula1.ASM</FILE><LINE>95</LINE></isr_tc0b>
+  <isr_int0><FILE>aula1.ASM</FILE><LINE>67</LINE></isr_int0>
+  <isr_tc0b><FILE>aula1.ASM</FILE><LINE>91</LINE></isr_tc0b>
   <value><FILE>aula1.ASM</FILE><LINE>15</LINE></value>
   <counter><FILE>aula1.ASM</FILE><LINE>16</LINE></counter>
-  <ssd_decode><FILE>aula1.ASM</FILE><LINE>148</LINE></ssd_decode>
-  <main><FILE>aula1.ASM</FILE><LINE>67</LINE></main>
-  <END><FILE>aula1.ASM</FILE><LINE>134</LINE></END>
-  <Tabela><FILE>aula1.ASM</FILE><LINE>182</LINE></Tabela>
-  <le_tab><FILE>aula1.ASM</FILE><LINE>161</LINE></le_tab>
+  <main><FILE>aula1.ASM</FILE><LINE>63</LINE></main>
+  <ssd_decode><FILE>aula1.ASM</FILE><LINE>144</LINE></ssd_decode>
+  <END><FILE>aula1.ASM</FILE><LINE>130</LINE></END>
+  <Tabela><FILE>aula1.ASM</FILE><LINE>178</LINE></Tabela>
+  <le_tab><FILE>aula1.ASM</FILE><LINE>157</LINE></le_tab>
  </LABELS>
 </ASSEMBLER_INFO>

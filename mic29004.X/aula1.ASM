@@ -7,8 +7,15 @@
 .ORG 0x0020 ; Timer
   RJMP isr_tc0b
 
-.ORG 0x0034 ; End
-      
+.ORG 0x0034 ; End  
+
+.DSEG
+.ORG SRAM_START
+   
+value:    .BYTE 1
+counter:  .BYTE 1
+ 
+.CSEG
 setup:
     ; Configura interrupção timer
     ldi R16, 0b00000101 ; TC0 com prescaler de 1024,a 16 MHz gera
@@ -43,27 +50,93 @@ setup:
     clr r16
     clr r17
 
+    ; Aponta X para a variavel "value" e zera a variavel
+    LDI XH, HIGH(value)
+    LDI XL, LOW(value)
+    ST X, R16
+
+    ; Aponta X para a variavel "counter" e zera a variavel
+    LDI XH, HIGH(counter)
+    LDI XL, LOW(counter)
+    ST X, R16
+
+    ; Mostra value na tela
+    rcall ssd_decode
+  
+
 main: 
   rjmp main    
 
 ; Reseta o valor do display e mostra
 isr_int0:
+  ; Salva o contexto
+  PUSH R16
+  IN R16, SREG
+  PUSH R16
+
+  ; Aponta X para a variavel "value"
+  LDI XH, HIGH(value)
+  LDI XL, LOW(value)
+
+  ; Zera R16 e armazena na variavel
   CLR R16
+  ST X, R16
+
+  ; Mostra na tela o valor
   RCALL ssd_decode
+
+  ; Recupera o contexto
+  POP R16
+  OUT SREG, R16
+  POP R16
+
   RETI
 
 isr_tc0b:
-  INC R21
-  CPI R21, 123
+  ; Salva o contexto
+  PUSH R16
+  IN R16, SREG
+  PUSH R16
+
+  ; Aponta X para a variável "counter"
+  LDI XH, HIGH(counter)
+  LDI XL, LOW(counter)
+
+  ; Carrega counter para R16
+  LD R16, X
+  ; Incrementa e salva R16
+  INC R16
+  ST X, R16
+
+  ; Se R16 !== 123 Vai para o fim
+  CPI R16, 123
   BRNE END
   
+  ; Aponta X para a variável "value"
+  LDI XH, HIGH(value)
+  LDI XL, LOW(value)
+
+  ; Carrega value para R16
+  LD R16, X
+  ; Mostra value na tela
   rcall ssd_decode
-  inc r16
+  ; Incrementa R16 e salva em value
+  INC R16
+  ST X, R16
+  
+  ; Se R16 !== 10 vai para o fim
   cpi r16, 10
   brne END
+  ; Senão zera e salva em value
   clr r16
+  ST X, R16
 
   END:
+    ; Recupera o contexto
+    POP R16
+    OUT SREG, R16
+    POP R16
+
     RETI
 
 ;---------------------------------------------------------------------------
